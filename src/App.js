@@ -1,9 +1,10 @@
+import AuthContainer from "./Components/Auth/AuthContainer";
 
 
 function App() {
   return (
     <div className="App">
-      <h2>Hello world</h2>
+     <AuthContainer/>
     </div>
   );
 }
