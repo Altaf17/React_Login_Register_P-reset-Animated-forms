@@ -13,7 +13,12 @@ const AuthContainer = () => {
         register: false,
         reset: false
 
-    })
+    });
+    const [showPassword, setShowPassword] = useState(false);
+    const handleToggle = () => {
+        setShowPassword(!showPassword)
+    
+      }
 
     const handleLogin = () => {
         setAuth({ login: true, register: false, reset: false })
@@ -54,8 +59,8 @@ const AuthContainer = () => {
         <div>
             <section className='flex-center --100vh'>
                 <div className="container box">
-                    {auth.login && <Login onRegister={handleRegister} onReset={handleReset} />}
-                    {auth.register && <Register onRegisterLogin={handleLogin} />}
+                    {auth.login && <Login onRegister={handleRegister} onReset={handleReset} handleToggle={handleToggle} showPassword={showPassword} />}
+                    {auth.register && <Register onRegisterLogin={handleLogin} handleToggle={handleToggle} showPassword={showPassword}/>}
                     {auth.reset && <Reset onLogin={handleLogin} />}
                 </div>
             </section>
